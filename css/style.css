@@ -1,0 +1,335 @@
+/* Fichier : /css/style.css */
+/* Fichier /css/style.css */
+
+/* --- DÉFINITION DE LA POLICE D'ÉCRITURE --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700; /* Titres en gras */
+}
+
+/* Le reste de vos styles... */
+/* ... */
+
+/* Style pour les cartes des semestres */
+.card-link {
+    text-decoration: none; /* Enlève le soulignement des liens */
+    color: inherit; /* Fait hériter la couleur du texte parent */
+    display: block; /* Permet au lien de prendre toute la taille de son conteneur */
+    transition: transform 0.2s ease-in-out; /* Ajoute une petite animation douce */
+}
+
+.card-link:hover .card {
+    transform: scale(1.05); /* Agrandit légèrement la carte au survol */
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15) !important; /* Ajoute une ombre plus prononcée */
+}
+
+/* Fichier : /css/style.css */
+
+/* ... (conservez le code existant pour .card-link) ... */
+
+
+/* --- Styles pour le carrousel d'accueil --- */
+
+#heroCarousel .carousel-item {
+    /* Définit une hauteur pour chaque slide. Vous pouvez ajuster cette valeur. */
+    height: 60vh; /* 60% de la hauteur de la fenêtre d'affichage */
+    min-height: 400px; /* Une hauteur minimale pour les petits écrans */
+}
+
+#heroCarousel .carousel-item img {
+    /* S'assure que l'image couvre toute la zone sans être déformée */
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+/* Améliore la lisibilité du texte sur les images */
+.carousel-caption {
+    /* Ajoute un fond semi-transparent derrière le texte */
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 0.5rem; /* Coins arrondis */
+    padding: 1rem;
+}
+
+/* Fichier : /css/style.css */
+
+/* ... (conservez le code existant) ... */
+
+
+/* --- NOUVEAUX STYLES POUR LA GRILLE DES SEMESTRES --- */
+
+/* On enlève la décoration du lien de la carte */
+.semester-link {
+    text-decoration: none;
+}
+
+/* Le style principal de notre nouvelle carte */
+.semester-card {
+    border: none; /* Pas de bordure */
+    border-radius: 0.75rem; /* Coins plus arrondis */
+    overflow: hidden; /* Essentiel pour que les coins arrondis coupent l'image de fond */
+    position: relative; /* Contexte de positionnement pour la superposition */
+    color: white; /* Couleur du texte par défaut pour la carte */
+    min-height: 250px; /* Hauteur minimale pour un bon rendu visuel */
+    
+    /* Propriétés pour l'image de fond */
+    background-size: cover;
+    background-position: center center;
+    
+    display: flex;
+    align-items: flex-end; /* Aligne le contenu en bas de la carte */
+    padding: 1.5rem;
+    
+    /* Animation de transition douce */
+    transition: all 0.4s ease-in-out;
+}
+
+/* Images de fond spécifiques pour chaque niveau de licence */
+/* Remplacez ces URLs par vos propres images si vous le souhaitez ! */
+
+
+
+/* La superposition (overlay) sombre pour la lisibilité du texte */
+.semester-card::before {
+    content: ''; /* Obligatoire pour un pseudo-élément */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Dégradé du transparent en haut au noir semi-transparent en bas */
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+    transition: all 0.4s ease-in-out;
+}
+
+/* Le contenu de la carte, placé au-dessus de la superposition */
+.semester-card .card-content {
+    position: relative; /* Pour s'assurer qu'il est au-dessus de ::before */
+    z-index: 2;
+    transition: all 0.4s ease-in-out;
+}
+
+/* --- EFFETS DE SURVOL (HOVER) --- */
+
+/* Au survol, on déplace légèrement la carte vers le haut et on ajoute une ombre prononcée */
+.semester-link:hover .semester-card {
+    transform: translateY(-12px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+}
+
+/* On rend la superposition un peu plus sombre pour accentuer l'effet */
+.semester-link:hover .semester-card::before {
+    background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.95) 100%);
+}
+
+/* On fait apparaître un texte "call to action" au survol */
+.semester-card .see-more {
+    opacity: 0; /* Caché par défaut */
+    transform: translateY(10px); /* Légèrement déplacé vers le bas */
+    transition: all 0.3s ease-in-out;
+    font-weight: 500;
+}
+
+.semester-link:hover .semester-card .see-more {
+    opacity: 1; /* Visible au survol */
+    transform: translateY(0); /* Revient à sa position normale */
+}
+
+/* Fichier : /css/style.css */
+
+/* ... (conservez tous les styles existants) ... */
+
+
+/* --- NOUVEAU : STYLE POUR LE BANDEAU "HÉROS" AVEC IMAGE --- */
+
+.hero-banner {
+    position: relative; /* Contexte pour la superposition */
+    background-size: cover;
+    background-position: center;
+}
+
+/* La superposition sombre pour la lisibilité */
+.hero-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Noir semi-transparent */
+    z-index: 1; /* Se place entre le fond et le contenu */
+}
+
+/* On s'assure que le contenu du bandeau est au-dessus de la superposition */
+.hero-banner .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* --- AMÉLIORATIONS DU FOOTER --- */
+
+/* Style du bouton "Retour en haut" */
+#backToTopBtn {
+    display: none; /* Caché par défaut */
+    position: fixed; /* Reste au même endroit à l'écran */
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #0d6efd; /* Couleur primaire de Bootstrap */
+    color: white;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 50%; /* Forme circulaire */
+    font-size: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#backToTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+    display: block;
+}
+
+#backToTopBtn:hover {
+    background-color: #0b5ed7; /* Un bleu plus foncé au survol */
+}
+
+/* Style des icônes sociales dans le footer */
+.footer-social-icon {
+    font-size: 24px;
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.footer-social-icon:hover {
+    transform: scale(1.2); /* Agrandit l'icône au survol */
+    color: #0d6efd !important; /* Change la couleur au survol */
+}
+
+/* --- STYLES POUR LES PAGES D'AUTHENTIFICATION --- */
+
+.auth-container {
+    min-height: 80vh; /* S'assure que la section prend de la hauteur */
+    display: flex;
+    align-items: center;
+}
+
+.auth-card {
+    border-radius: 1rem;
+    overflow: hidden; /* Important pour que les coins arrondis affectent l'image */
+}
+
+.auth-image-column {
+    background: linear-gradient(45deg, #4e73df, #1cc88a);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    text-align: center;
+}
+
+.auth-image-column .icon {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* On s'assure que sur mobile (en dessous de 992px), la colonne d'image n'a pas de bordure bizarre */
+@media (max-width: 991.98px) {
+    .auth-image-column {
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 1rem;
+    }
+}
+
+/* =================================================================== */
+/* ===         THÈME SOMBRE DÉDIÉ POUR LA SECTION FORUM           === */
+/* =================================================================== */
+
+.forum-container {
+    background-color: #111827; /* Fond sombre profond */
+    color: #9ca3af; /* Texte secondaire gris clair */
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+/* On cible les titres uniquement à l'intérieur du conteneur du forum */
+.forum-container h1,
+.forum-container h2,
+.forum-container h3,
+.forum-container h4,
+.forum-container h5 {
+    color: #f9fafb; /* Texte principal blanc cassé */
+}
+
+/* On cible les liens uniquement à l'intérieur du conteneur du forum */
+.forum-container a:not(.btn) {
+    color: #60a5fa; /* Bleu clair pour les liens */
+}
+.forum-container a:not(.btn):hover {
+    color: #93c5fd; /* Bleu plus clair au survol */
+}
+
+/* Style des cartes pour les catégories et les sujets */
+.forum-container .forum-card {
+    background-color: #1f2937;
+    border: 1px solid #374151;
+    transition: all 0.3s ease;
+}
+.forum-container .forum-card:hover {
+    border-color: #4f46e5; /* Accent Indigo au survol */
+}
+
+/* Style des messages dans une conversation */
+.forum-container .post-card {
+    background-color: #1f2937;
+    border: 1px solid #374151;
+}
+.forum-container .post-author-info {
+    background-color: #111827;
+    border-right: 1px solid #374151;
+}
+.forum-container .post-author-info .username {
+    font-weight: 700;
+    color: #f9fafb;
+}
+.forum-container .post-author-info .user-role {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 9999px;
+}
+.forum-container .post-author-info .user-role.etudiant { background-color: #3b82f6; color: white; }
+.forum-container .post-author-info .user-role.professeur { background-color: #10b981; color: white; }
+.forum-container .post-author-info .user-role.admin { background-color: #ef4444; color: white; }
+
+.forum-container .post-content {
+    line-height: 1.7;
+    font-size: 1.05rem;
+    color: #d1d5db; /* Texte des messages plus clair */
+}
+
+/* Assurer la lisibilité des éléments Bootstrap dans le contexte sombre */
+.forum-container .list-group-item {
+    background-color: transparent;
+    border-color: #374151;
+}
+.forum-container .breadcrumb-item a {
+    color: #9ca3af;
+}
+.forum-container .breadcrumb-item.active {
+    color: #6b7280;
+}
+.forum-container .card-footer,
+.forum-container .text-muted {
+    color: #6b7280 !important;
+}

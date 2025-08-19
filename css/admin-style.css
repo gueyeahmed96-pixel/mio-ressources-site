@@ -1,0 +1,203 @@
+/* =================================================================== */
+/* ===         THÈME "ROCKER" FINAL POUR MIO ADMIN                === */
+/* =================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+    --bg-main: #212529;
+    --bg-sidebar: #2c344a;
+    --bg-card: #2c344a;
+    --border-color: #3e4b67;
+    --text-primary: #ffffff;
+    --text-secondary: #adb5bd;
+    --sidebar-width: 260px;
+    --gradient-1: linear-gradient(45deg, #8e2de2, #4a00e0);
+    --gradient-2: linear-gradient(45deg, #f953c6, #b91d73);
+    --gradient-3: linear-gradient(45deg, #11998e, #38ef7d);
+    --gradient-4: linear-gradient(45deg, #f7971e, #ffd200);
+}
+
+body { background-color: var(--bg-main); font-family: 'Roboto', sans-serif; color: var(--text-secondary); }
+#admin-wrapper { position: relative; overflow-x: hidden; }
+
+/* --- Barre Latérale (Sidebar) --- */
+#sidebar-wrapper { 
+    background-color: var(--bg-sidebar); 
+    width: var(--sidebar-width); 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    z-index: 1030; 
+    height: 100%; 
+    margin-left: 0; 
+    transition: transform .3s ease-in-out; 
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+#sidebar-wrapper .sidebar-brand { font-size: 1.8rem; font-weight: 700; color: var(--text-primary); }
+#sidebar-wrapper .admin-profile .admin-name { color: var(--text-primary); font-weight: 600; }
+#sidebar-wrapper .nav-link { color: var(--text-secondary); padding: 0.8rem 1.5rem; font-weight: 500; transition: all 0.2s; border-radius: 0.3rem; }
+#sidebar-wrapper .nav-link:hover { color: var(--text-primary); background-color: rgba(255,255,255,0.05); }
+#sidebar-wrapper .nav-link.active { color: var(--text-primary); font-weight: 700; background-color: var(--bg-main); }
+.sidebar-submenu .nav-link { font-size: 0.9em; padding-left: 3.5rem; }
+.sidebar-chevron { transition: transform 0.3s; }
+.nav-link[aria-expanded="true"] .sidebar-chevron { transform: rotate(90deg); }
+
+/* --- Overlay pour mobile --- */
+#sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1029;
+}
+
+/* --- Contenu & Barre Supérieure --- */
+#page-content-wrapper { transition: margin-left .3s; width: 100%; padding-left: var(--sidebar-width); }
+#admin-wrapper.toggled #sidebar-wrapper { 
+    transform: translateX(-100%);
+}
+#admin-wrapper.toggled #page-content-wrapper { padding-left: 0; }
+.topbar { background-color: var(--bg-card); height: 70px; border-bottom: 1px solid var(--border-color); }
+.topbar .btn-toggle, .topbar .nav-link { color: var(--text-secondary); }
+.topbar .btn-toggle:hover, .topbar .nav-link:hover { color: var(--text-primary); }
+.topbar .dropdown-menu { background-color: var(--bg-card); border-color: var(--border-color); }
+.topbar .dropdown-item { color: var(--text-secondary); }
+.topbar .dropdown-item:hover { background-color: var(--bg-sidebar); color: var(--text-primary); }
+
+/* --- Responsive --- */
+@media (max-width: 991.98px) { 
+    #page-content-wrapper { 
+        padding-left: 0; 
+    } 
+    #sidebar-wrapper {
+        transform: translateX(-100%);
+    }
+    #admin-wrapper.toggled #sidebar-wrapper {
+        transform: translateX(0);
+    }
+    #admin-wrapper.toggled #sidebar-overlay {
+        display: block;
+    }
+}
+
+/* --- Cartes & Composants --- */
+.card { background-color: var(--bg-card); border: none; border-radius: 0.5rem; }
+.card-header { background-color: transparent; border-bottom: 1px solid var(--border-color); color: var(--text-primary); font-weight: 500; }
+.card-title, h1, h2, h3, h4, h5, h6 { color: var(--text-primary); }
+.stat-card { color: white; }
+.stat-card .stat-value { font-size: 2rem; font-weight: 700; }
+.stat-card .stat-label { font-size: 0.9rem; opacity: 0.8; }
+.stat-card .stat-icon { font-size: 3rem; opacity: 0.3; }
+.bg-gradient-1 { background-image: var(--gradient-1); }
+.bg-gradient-2 { background-image: var(--gradient-2); }
+.bg-gradient-3 { background-image: var(--gradient-3); }
+.bg-gradient-4 { background-image: var(--gradient-4); }
+
+/* --- Overlay pour mobile --- */
+#sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1029;
+}
+
+/* --- Améliorations Responsive pour la Topbar --- */
+@media (max-width: 991.98px) {
+    .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 1020;
+        padding: 0.5rem 1rem;
+        height: auto;
+        min-height: 70px;
+    }
+    
+    .topbar .container-fluid {
+        flex-wrap: nowrap;
+        padding: 0;
+    }
+    
+    .topbar .navbar-nav {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .topbar .nav-item {
+        margin-left: 0.5rem;
+    }
+    
+    .topbar .nav-link {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Ajustement pour la photo de profil en mode mobile */
+    .topbar .nav-link img {
+        width: 28px;
+        height: 28px;
+    }
+    
+    /* Menu hamburger plus visible */
+    .btn-toggle {
+        z-index: 1030;
+    }
+    
+    /* Ajustements pour les dropdowns */
+    .topbar .dropdown-menu {
+        position: absolute;
+        right: 0;
+        left: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Encore plus compact sur très petits écrans */
+    .topbar {
+        padding: 0.5rem;
+    }
+    
+    .topbar .nav-item {
+        margin-left: 0.3rem;
+    }
+    
+    .topbar .nav-link {
+        padding: 0.3rem;
+    }
+    
+    /* Cacher le nom d'utilisateur en mode très compact */
+    .topbar .dropdown-toggle span {
+        display: none;
+    }
+    
+    /* Ajustement des notifications */
+    .topbar .badge {
+        font-size: 0.5em;
+        padding: 0.2em 0.4em;
+    }
+    
+    /* Texte "Voir le site" remplacé par une icône */
+    .topbar .nav-item:first-child .nav-link span {
+        display: none;
+    }
+    
+    .topbar .nav-item:first-child .nav-link i {
+        display: inline-block !important;
+        font-size: 1.2rem;
+    }
+}
+
+/* Animation pour l'overlay */
+#sidebar-overlay {
+    transition: opacity 0.3s;
+}
+
+#admin-wrapper.toggled #sidebar-overlay {
+    display: block;
+}

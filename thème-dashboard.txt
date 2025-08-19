@@ -1,0 +1,67 @@
+Thèmes Sombres (Modernes et Concentrés)
+Idéals pour ne pas fatiguer les yeux et mettre en valeur les données.
+
+1. Thème "Modern Tech" (Bleu & Gris)
+Description : Un look très professionnel, inspiré des outils de développement modernes. Très lisible.
+Fond Principal : #111827
+Fond Menu Latéral : #1f2937
+Fond des Cartes : #1f2937
+Couleur d'Accentuation : #3b82f6 (Bleu vif)
+Texte Principal (Titres) : #f9fafb
+Texte Secondaire : #9ca3af
+
+2. Thème "Oceanic Deep" (Turquoise & Bleu Nuit)
+Description : Une palette élégante et apaisante avec une touche de couleur énergique.
+Fond Principal : #0b1c2b
+Fond Menu Latéral : #11273a
+Fond des Cartes : #18334a
+Couleur d'Accentuation : #2dd4bf (Turquoise)
+Texte Principal (Titres) : #ffffff
+Texte Secondaire : #a0b1c5
+
+3. Thème "Graphite & Gold" (Gris Foncé & Or)
+Description : Un look premium, sobre et très chic.
+Fond Principal : #18181b
+Fond Menu Latéral : #27272a
+Fond des Cartes : #27272a
+Couleur d'Accentuation : #f59e0b (Or/Ambre)
+Texte Principal (Titres) : #e4e4e7
+Texte Secondaire : #a1a1aa
+
+4. Thème "Matrix Green" (Vert & Noir)
+Description : Un style "hacker" classique, pour un look très tech.
+Fond Principal : #000000
+Fond Menu Latéral : #111111
+Fond des Cartes : #1c1c1c
+Couleur d'Accentuation : #10b981 (Vert émeraude)
+Texte Principal (Titres) : #f0f0f0
+Texte Secondaire : #a0a0a0
+Thèmes Clairs (Clairs et Aérés)
+Idéals pour un environnement de travail très lumineux.
+
+5. Thème "Classic Light" (Le Thème par Défaut)
+Description : Propre, professionnel et très lisible. Le standard des dashboards modernes.
+Fond Principal : #f8f9fc
+Fond Menu Latéral : #ffffff
+Fond des Cartes : #ffffff
+Couleur d'Accentuation : #4e73df (Bleu)
+Texte Principal (Titres) : #5a5c69
+Texte Secondaire : #858796
+
+6. Thème "Minty Fresh" (Vert Menthe & Blanc)
+Description : Un thème clair, doux et moderne. Très agréable et calme.
+Fond Principal : #f0fdfa
+Fond Menu Latéral : #ffffff
+Fond des Cartes : #ffffff
+Couleur d'Accentuation : #14b8a6 (Vert menthe)
+Texte Principal (Titres) : #1f2937
+Texte Secondaire : #6b7280
+
+7. Thème "Minimalist Grey" (Tons de Gris)
+Description : Un look très sobre et minimaliste, où le contenu est roi.
+Fond Principal : #f3f4f6
+Fond Menu Latéral : #ffffff
+Fond des Cartes : #ffffff
+Couleur d'Accentuation : #374151 (Gris foncé)
+Texte Principal (Titres) : #111827
+Texte Secondaire : #6b7280

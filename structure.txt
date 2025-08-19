@@ -1,0 +1,106 @@
+mio-ressources/
+│
+├── 📁 admin/
+│   ├── 📁 partials/
+│   │   ├── footer.php
+│   │   └── header.php
+│   ├── add-admin-handler.php
+│   ├── add-admin.php
+│   ├── add-resource-handler.php
+│   ├── add-resource.php
+│   ├── appearance-handler.php
+│   ├── auth.php
+│   ├── delete-admin.php
+│   ├── delete-resource.php
+│   ├── edit-admin-handler.php
+│   ├── edit-admin.php
+│   ├── edit-page-handler.php
+│   ├── edit-page.php
+│   ├── edit-resource-handler.php
+│   ├── edit-resource.php
+│   ├── index.php
+│   ├── list-admins.php
+│   ├── list-resources.php
+│   ├── login-handler.php
+│   ├── login.php
+│   ├── logout.php
+│   ├── manage-appearance.php
+│   ├── mark-notifications-read.php
+│   ├── settings-handler.php
+│   └── settings.php
+│
+├── 📁 css/
+│   ├── admin-style.css
+│   └── style.css
+│
+├── 📁 includes/
+│   ├── db.php
+│   ├── footer.php
+│   ├── header.php
+│   └── tracker.php
+│
+├── 📁 pages/
+│   ├── a-propos.php
+│   ├── club-mio.php
+│   ├── contact.php
+│   ├── matiere.php
+│   └── semestre.php
+│
+├── 📁 partials/
+│   ├── home-carousel.php
+│   └── home-semesters-list.php
+│
+├── 📁 uploads/
+│   ├── 📁 backgrounds/
+│   ├── 📁 profiles/
+│   └── 📁 slider/
+│
+├── index.php
+└── README.md
+
+
+
+Explication Détaillée des Fichiers
+Dossier Racine (/)
+index.php : La page d'accueil du site public. C'est le "chef d'orchestre" qui assemble les différents morceaux (header, partials, footer) pour construire la page que les étudiants voient en premier.
+Dossier css/ (Styles)
+style.css : La feuille de style pour le site public. Elle définit l'apparence du header, du footer, du slider, des cartes de semestre, etc. C'est ici que vous avez défini la police "Poppins".
+admin-style.css : La feuille de style pour le Dashboard Admin. Elle définit l'apparence de la barre latérale, de la barre supérieure, des cartes de statistiques et des formulaires de l'administration. C'est ici que se trouve le design "Celestial" ou "Rocker".
+Dossier includes/ (Fichiers Partagés du Site Public)
+db.php : Le cœur de la connexion. Ce fichier contient les informations (hôte, nom d'utilisateur, mot de passe) pour se connecter à la base de données MySQL. Il est inclus par presque tous les autres fichiers.
+header.php : L'en-tête commun à toutes les pages du site public. Il contient le logo, la barre de navigation (Accueil, À Propos...), et les liens vers les fichiers CSS.
+footer.php : Le pied de page commun à toutes les pages du site public. Il affiche dynamiquement les informations de contact, les liens vers les réseaux sociaux, et gère le bouton "Retour en haut".
+tracker.php : Le script de suivi des visiteurs. Il est inclus silencieusement par le header.php et enregistre chaque visite de page dans la base de données.
+Dossier pages/ (Pages du Site Public)
+a-propos.php, club-mio.php : Affichent le contenu éditorial qui est géré depuis le dashboard admin. Elles vont chercher leur texte dans la table pages.
+contact.php : Affiche les informations de contact (email, téléphone, carte Google Maps) qui sont gérées depuis les "Paramètres" du dashboard.
+semestre.php : Affiche la liste de toutes les matières pour un semestre donné.
+matiere.php : Affiche la liste de toutes les ressources (Cours, TD) disponibles pour une matière donnée, avec les boutons pour voir ou télécharger.
+Dossier partials/ (Morceaux de la Page d'Accueil)
+home-carousel.php : Contient le code du slider (carrousel) de la page d'accueil. Il va chercher les images et les textes dans la table slider_images.
+home-semesters-list.php : Contient le code de la grille des semestres sur la page d'accueil. Il va chercher les images de fond dans la table parametres.
+Dossier uploads/ (Stockage des Fichiers)
+backgrounds/ : Stocke les images de fond pour les niveaux L1, L2, L3.
+profiles/ : Stocke les photos de profil des administrateurs.
+slider/ : Stocke les images du carrousel de la page d'accueil.
+(Les fichiers de cours/TD sont stockés directement à la racine de uploads/).
+Dossier admin/ (L'Espace d'Administration)
+admin/partials/ (Morceaux du Dashboard)
+header.php : L'en-tête commun à toutes les pages de l'admin. Il contient la barre latérale, la barre supérieure, les menus de navigation, et gère la logique d'affichage des notifications et de la photo de profil.
+footer.php : Le pied de page commun à toutes les pages de l'admin. Il charge les scripts JavaScript essentiels pour le fonctionnement des menus et du thème.
+Fichiers de Base de l'Admin
+index.php : Le Tableau de Bord. C'est la page principale de l'admin, qui affiche les statistiques et les graphiques.
+login.php : Le formulaire de connexion.
+logout.php : Le script qui déconnecte l'administrateur.
+auth.php : Le Garde du Corps. Fichier de sécurité inclus sur chaque page de l'admin pour vérifier si l'utilisateur est bien connecté.
+mark-notifications-read.php : Script silencieux qui marque les notifications comme "lues".
+Gestion des Ressources
+add-resource.php / list-resources.php / edit-resource.php : Les pages pour ajouter, lister et modifier les cours/TD.
+add-resource-handler.php / edit-resource-handler.php / delete-resource.php : Les scripts qui traitent les formulaires correspondants.
+Gestion des Utilisateurs
+add-admin.php / list-admins.php / edit-admin.php : Les pages pour ajouter, lister et modifier les administrateurs (y compris leur profil).
+add-admin-handler.php / edit-admin-handler.php / delete-admin.php : Les scripts qui traitent les formulaires correspondants.
+Gestion du Contenu et de l'Apparence
+edit-page.php / edit-page-handler.php : Pour modifier le contenu des pages "À Propos" et "Club MIO".
+manage-appearance.php / appearance-handler.php : Pour changer les images du slider et les fonds d'écran des niveaux.
+settings.php / settings-handler.php : Pour gérer les paramètres globaux du site (contact, réseaux sociaux, et couleurs du thème admin).
