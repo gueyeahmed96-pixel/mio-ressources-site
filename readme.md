@@ -1,90 +1,57 @@
-# MIO-Ressources - Plateforme de Partage de Cours
+Présentation du Projet : MIO-Ressources
+Concept Général
+MIO-Ressources est une plateforme web complète et dynamique, développée spécifiquement pour les étudiants de la filière Management Informatisé des Organisations (MIO) de l'Université Iba Der Thiam de Thiès. Conçu comme un écosystème pédagogique centralisé, le site a pour double mission de faciliter l'accès aux supports de cours et de construire une communauté d'entraide active et solidaire entre les étudiants et les professeurs.
+Le projet a évolué d'une simple bibliothèque de ressources en un portail communautaire riche en fonctionnalités, entièrement administrable via un tableau de bord puissant et moderne.
+Fonctionnalités Clés
+La plateforme est divisée en deux expériences distinctes : l'interface publique pour les étudiants et les visiteurs, et le panneau d'administration sécurisé.
+I. Espace Public (Côté Étudiant)
+L'interface publique est conçue pour être engageante, intuitive et parfaitement responsive sur tous les appareils (mobiles, tablettes, ordinateurs).
+Accueil Dynamique et Immersif :
+Un slider d'images entièrement administrable pour mettre en avant les actualités ou des messages de bienvenue.
+Une grille visuelle des semestres (L1, L2, L3) avec des images de fond personnalisables, invitant à l'exploration.
+Une section "Dernières Discussions" qui met en avant l'activité récente du forum, créant un sentiment de communauté vivante.
+Système d'Authentification Complet et Sécurisé :
+Inscription et Connexion pour les étudiants et les professeurs.
+Système de récupération de mot de passe (simulé en local, fonctionnel en production).
+Profils Utilisateurs Personnalisables où chaque membre peut ajouter sa propre photo de profil et modifier ses informations.
+Bibliothèque de Ressources Structurée :
+Navigation logique par semestre puis par matière.
+Affichage clair des ressources (Cours, TD, Vidéos) avec une double option : "Voir" pour une consultation rapide dans le navigateur (PDFs) et "Télécharger" pour une sauvegarde locale.
+Forum d'Échange Communautaire (Cœur du Site) :
+Un espace de discussion structuré en catégories (par niveau, par matière, ou généraliste).
+Possibilité pour les utilisateurs connectés de créer des sujets et de répondre aux discussions.
+Identification visuelle des rôles (Étudiant, Professeur, Admin) pour valoriser les contributions.
+Possibilité pour les utilisateurs de modifier ou supprimer leurs propres messages.
+Pages de Contenu Dynamiques :
+Les pages "À Propos" et "Club MIO" sont entièrement éditables depuis l'administration via un éditeur de texte riche.
+II. Espace d'Administration (Dashboard)
+Le tableau de bord est le centre de contrôle total du site, conçu pour être à la fois puissant, esthétique et facile à utiliser.
+Design Moderne et Personnalisable :
+Un thème sombre par défaut, inspiré des meilleurs designs de dashboards ("Rocker"), pour un confort visuel optimal.
+Un sélecteur de thème permettant à l'administrateur de changer toutes les couleurs de l'interface (fonds, textes, couleurs d'accentuation) pour créer sa propre palette.
+Analyse de Données (Business Intelligence) :
+Cartes de statistiques affichant les indicateurs clés : visites totales, visiteurs uniques, nombre de ressources et de matières.
+Graphique d'activité en temps réel montrant l'évolution du trafic sur les 7 derniers jours.
+Graphique circulaire de répartition des ressources par type.
+Tableau des 5 pages les plus populaires pour comprendre le comportement des utilisateurs.
+Gestion Complète du Contenu (CMS) :
+Gestion des Ressources (CRUD) : Ajout, modification et suppression de tous les supports de cours.
+Gestion de l'Apparence : Modification des images du slider, des fonds d'écran, et du logo.
+Gestion des Pages : Édition du contenu textuel des pages statiques.
+Outils de Modération et de Gestion Communautaire :
+Gestion des Utilisateurs : Lister tous les comptes (étudiants, professeurs, admins), modifier leurs informations, changer leur rôle, et les bannir si nécessaire.
+Gestion du Forum : Créer/modifier/supprimer les catégories du forum, épingler les sujets importants, et modérer les messages.
+Notifications : Un système de cloche informe l'administrateur en temps réel des nouvelles activités sur le site (ex: nouvelle ressource ajoutée).
+Architecture Technique et Sécurité
+La sécurité a été une priorité à chaque étape du développement.
+Backend : PHP 8 avec une approche orientée objet pour la logique et PDO pour les interactions avec la base de données.
+Base de Données : MySQL / MariaDB avec une structure relationnelle propre (clés étrangères).
+Frontend : Bootstrap 5 pour un design responsive robuste, complété par du CSS personnalisé et du JavaScript pour l'interactivité.
+Sécurité :
+Mots de passe hachés (Argon2/Bcrypt via PHPAuth).
+Protection systématique contre l'Injection SQL (requêtes préparées).
+Protection contre le XSS (htmlspecialchars).
+Contrôle d'accès strict pour les pages admin.
+Gestion sécurisée des uploads de fichiers.
+Dépendances : Gérées via Composer, avec l'intégration de la librairie professionnelle PHPAuth pour une authentification robuste et sécurisée.
 
-MIO-Ressources est une application web complète développée en PHP/MySQL, conçue pour les étudiants de la filière **Management Informatisé des Organisations (MIO)** de l'Université Iba Der Thiam de Thiès. Elle centralise les ressources pédagogiques et est entièrement gérée via un tableau de bord d'administration avancé.
-
-Le projet a été construit étape par étape, en partant d'une simple page d'accueil pour aboutir à un système de gestion de contenu (CMS) complet avec des fonctionnalités d'analyse et de personnalisation.
-
-## Fonctionnalités
-
-### 🚀 Côté Visiteur (Étudiant)
-- **Accueil Dynamique :** Slider d'images et grille des semestres entièrement administrables.
-- **Navigation Intuitive :** Parcours logique par semestre, puis par matière.
-- **Consultation de Ressources :** Affichage des cours et TD avec double option : **"Voir"** dans le navigateur (pour les PDF) et **"Télécharger"**.
-- **Contenu Dynamique :** Pages "À Propos", "Club MIO", et "Contact" dont le contenu textuel et les informations (email, téléphone, carte) sont gérés depuis l'admin.
-- **Footer Intelligent :** Affiche dynamiquement les informations de contact et les icônes de réseaux sociaux renseignées dans l'administration.
-- **Design Responsive :** Interface optimisée pour une expérience parfaite sur mobile, tablette et ordinateur.
-
-### 👑 Côté Administrateur (Dashboard)
-- **Tableau de Bord "Business Intelligence" :**
-    - Statistiques clés (visites, visiteurs uniques, nombre de ressources).
-    - **Graphique d'activité** montrant l'évolution des visites sur les 7 derniers jours.
-    - **Graphique circulaire** montrant la répartition des types de ressources (Cours, TD, Vidéos).
-    - Liste des **5 pages les plus populaires** du site.
-- **Design Moderne et Personnalisable :**
-    - Interface inspirée des meilleurs templates de dashboards modernes (Thème sombre "Rocker").
-    - **Thème personnalisable :** L'administrateur peut changer toutes les couleurs principales du dashboard depuis les paramètres.
-    - **Mode Jour/Nuit** avec sauvegarde des préférences de l'utilisateur.
-- **Gestion Complète des Ressources (CRUD) :**
-    - Ajout, modification et suppression de fichiers (Cours, TD) ou de liens (Vidéos).
-- **Gestion Complète des Utilisateurs :**
-    - Ajout et suppression de comptes administrateurs.
-    - Modification de l'identifiant et **réinitialisation du mot de passe**.
-    - Sécurité renforcée : un admin ne peut pas se supprimer lui-même, et le **Super Admin (ID 1) est protégé**.
-    - Gestion des **photos de profil** pour chaque administrateur.
-- **Gestion du Contenu et de l'Apparence :**
-    - Édition du contenu des pages "À Propos" et "Club MIO" via un éditeur de texte riche (WYSIWYG TinyMCE).
-    - Modification des images du slider de la page d'accueil.
-    - Modification des images de fond pour chaque niveau de licence (L1, L2, L3).
-- **Notifications :**
-    - Une cloche de notification informe l'admin de l'ajout de nouvelles ressources.
-    - Système de "marquage comme lu" automatique.
-- **Interface Ergonomique :**
-    - Barre latérale pliable pour maximiser l'espace de travail.
-    - Menus déroulants intelligents qui restent ouverts sur la section active.
-
-## Technologies Utilisées
-
-- **Backend :** PHP 8, PDO pour les interactions avec la base de données.
-- **Base de données :** MySQL / MariaDB.
-- **Frontend :** HTML5, CSS3 (avec variables CSS pour le theming), Bootstrap 5, JavaScript.
-- **Serveur local :** XAMPP.
-- **Librairies JS :**
-    - **Chart.js :** Pour les graphiques dynamiques.
-    - **TinyMCE :** Pour l'éditeur de texte riche.
-    - **DataTables :** Pour les tableaux interactifs (non implémenté dans la version finale, mais prévu).
-
-## Installation
-
-Suivez ces étapes pour lancer le projet sur votre machine locale.
-
-### Prérequis
-- Un serveur web local comme [XAMPP](https://www.apachefriends.org/fr/index.html).
-
-### Étapes
-1.  **Placer les Fichiers :**
-    Copiez le dossier `mio-ressources` dans le répertoire `htdocs` de votre installation XAMPP.
-
-2.  **Démarrer les Services :**
-    Lancez le panneau de contrôle XAMPP et démarrez les services **Apache** et **MySQL**.
-
-3.  **Base de Données :**
-    - Allez sur `http://localhost/phpmyadmin/`.
-    - Créez une nouvelle base de données nommée `mio_db`.
-    - Sélectionnez `mio_db`, allez dans l'onglet **SQL** et exécutez le script SQL complet fourni pour créer toutes les tables et les données initiales.
-
-4.  **Dossiers d'Upload :**
-    - Dans `mio-ressources/uploads/`, créez les dossiers suivants : `backgrounds`, `profiles`, et `slider`.
-    - Placez-y les images par défaut (ex: `slider_default_1.jpg`) pour éviter les erreurs d'affichage au premier lancement.
-
-5.  **Lancer le Site :**
-    - **Site Public :** `http://localhost/mio-ressources/`
-    - **Administration :** `http://localhost/mio-ressources/admin/`
-
-## Accès Administrateur
-
-Les identifiants par défaut du Super Administrateur sont :
-- **Identifiant :** `admin`
-- **Mot de passe :** `admin123`
-
----
-_Ce projet représente un parcours de développement complet, allant de la conception à la réalisation d'une application web dynamique et entièrement fonctionnelle. Un grand merci pour cette collaboration instructive._
